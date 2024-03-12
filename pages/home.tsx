@@ -72,7 +72,7 @@ const Home = () => {
 
   const writeData = async () => {
     try {
-      const docRef = await addDoc(collection(db, "users"), {
+      const docRef = await addDoc(doc(db, "users", ""), {
         first: "Ada",
         last: "Lovelace",
         born: 1815
@@ -84,6 +84,12 @@ const Home = () => {
   }
 
   const getData = async () => {
+    //1. ref
+    //2. 
+    //2.1. read - getDoc-record, getDocs-collection
+    //2.2. write - 
+
+
     let userListRef = collection(db, "users").withConverter(userConverter)
     // let userRef = collection(db, "users") // refer to users collection
     let userList = await getDocs(userListRef);
