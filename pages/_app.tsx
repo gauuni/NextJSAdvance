@@ -5,16 +5,22 @@ import nextI18NextConfig from '../next-i18next.config.js'
 import React from "react";
 import { Provider } from 'react-redux'
 import { store } from "@/lib/store";
-// const App = ({ Component, pageProps }: AppProps) => {
-//   return <Component {...pageProps} />;
-// }
+import { ThemeProvider, createTheme } from "@mui/material";
 
-// export default appWithTranslation(App)
+
+const theme = createTheme({
+  palette: {
+    mode: "dark"
+  }
+});
+
 
 const App = ({ Component, pageProps }: AppProps) => (
-  <Provider store={store}>
-    <Component {...pageProps} />
-  </Provider>
+  <ThemeProvider theme={theme}>
+    <Provider store={store}>
+      <Component {...pageProps} />
+    </Provider>
+  </ThemeProvider>
 )
 
 export default appWithTranslation(App)
